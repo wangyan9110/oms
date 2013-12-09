@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+<mapper namespace="com.iflytek.oms.pms.persist.SupplierDao">
+
+<select id="selectOne" parameterType="int" resultMap="SupplierMapper">
+<![CDATA[
+SELECT TOP 1 
+	SupplierID,
+	CompanyName,
+	ContactName,
+	ContactTitle,
+	Address,
+	City,
+	Region,
+	PostalCode,
+	Country,
+	Phone,
+	Fax,
+	HomePage
+FROM Suppliers
+WHERE 
+	SupplierID=#{id}
+]]>
+</select>
+
+<resultMap type="Supplier" id="SupplierMapper">
+<association property="supplierId" column="SupplierID"></association>
+<association property="companyName" column="CompanyName"></association>
+<association property="contact.title" column="ContactName"></association>
+<association property="contact.name" column="ContactTitle"></association>
+<association property="contact.phone" column="Phone"></association>
+<association property="contact.fax" column="Fax"></association>
+<association property="address.address" column="Address"></association>
+<association property="address.city" column="City"></association>
+<association property="address.region" column="Region"></association>
+<association property="address.postalCode" column="PostalCode"></association>
+<association property="address.country" column="Country"></association>
+<association property="homePage" column="HomePage"></association>
+</resultMap>
+
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iflytek.oms.ums.persist.EmployeeDao">
+
+<select id="selectEmployeeById" resultMap="EmployeeMapper" parameterType="int">
+<![CDATA[
+SELECT TOP 1
+	EmployeeID,
+	LastName,
+	FirstName
+FROM Employees
+WHERE
+	EmployeeID=#{id}
+]]>
+</select>
+
+<select id="selectEmployeeByUserName" resultMap="EmployeeMapper" parameterType="string">
+<![CDATA[
+SELECT TOP 1
+	EmployeeID,
+	LastName,
+	FirstName,
+	UserName,
+	Password
+FROM Employees
+WHERE
+	UserName=#{name}
+]]>
+</select>
+
+<select id="selectAllEmployees" resultMap="EmployeeMapper">
+<![CDATA[
+SELECT
+	EmployeeID,
+	LastName,
+	FirstName
+FROM Employees
+]]>
+</select>
+
+
+<resultMap type="Employee" id="EmployeeMapper" >
+
+<result property="employeeId" column="EmployeeID" ></result>
+<result property="name.firstName" column="FirstName" ></result>
+<result property="name.lastName" column="LastName"></result>
+<result property="userName" column="UserName"></result>
+<result property="password" column="Password"></result>
+</resultMap>
+
+</mapper>

@@ -1,0 +1,65 @@
+*
+{
+	margin:0px;
+	padding:0px;
+}
+/*----- header style -----*/
+.header
+{
+	line-height:60px;
+	background:url(../images/logo.png) no-repeat 75px 16px;
+	background-color:#a0daf9;
+	display:block;
+	text-align:right;
+}
+.header a.logout
+{
+	float:right;
+	margin-right:50px;
+	margin-top:18px;
+	margin-left:10px;
+	background:url(../images/logout.png) no-repeat;
+	height:32px;
+	width:32px;
+	display:block;
+}
+.header span
+{
+	padding-top:5px;
+	display:block;
+	font-family:微软雅黑;
+	color:#555;
+}
+
+/*----- nav style -----*/
+.nav_item
+{
+	line-height:25px;
+	height:25px;
+}
+
+/*----- footer style -----*/
+.footer
+{
+	height:30px;
+	line-height:30px;
+	background-color:#a0daf9;
+	text-align:center;
+	color:#1874a5;
+}
+
+/* nav style */
+div.x-navbar-item 
+{
+	padding:14px 0px 6px 50px;
+	font-size:14px;
+	background:url(../images/item_bg.gif) no-repeat 26px 22px;
+}
+div.x-navbar-item:hover
+{
+	background-color:#eee;
+}
+div.x-navbar-item-selected
+{
+	background-color:#ddd;
+}

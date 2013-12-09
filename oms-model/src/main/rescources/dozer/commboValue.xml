@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping>
+		<class-a>com.iflytek.oms.pms.domain.Product</class-a>
+		<class-b>com.iflytek.oms.main.dto.CommboValue</class-b>
+		<field>
+			<a>productId</a>
+			<b>value</b>
+		</field>
+		<field>
+			<a>productName</a>
+			<b>text</b>
+		</field>
+	</mapping>
+	<mapping>
+		<class-a>com.iflytek.oms.oms.domain.Shipper</class-a>
+		<class-b>com.iflytek.oms.main.dto.CommboValue</class-b>
+		<field>
+			<a>shipperId</a>
+			<b>value</b>
+		</field>
+		<field>
+			<a>companyName</a>
+			<b>text</b>
+		</field>
+	</mapping>
+	<mapping>
+		<class-a>com.iflytek.oms.ums.domain.Employee</class-a>
+		<class-b>com.iflytek.oms.main.dto.CommboValue</class-b>
+		<field>
+			<a>employeeId</a>
+			<b>value</b>
+		</field>
+	</mapping>
+	<mapping>
+		<class-a>com.iflytek.oms.oms.domain.Customer</class-a>
+		<class-b>com.iflytek.oms.main.dto.CommboValue</class-b>
+		<field>
+			<a>customerId</a>
+			<b>value</b>
+		</field>
+		<field>
+			<a>companyName</a>
+			<b>text</b>
+		</field>
+	</mapping>
+</mappings>

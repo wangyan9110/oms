@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+	<bean id="pageConfig" class="com.iflytek.framework.mybatis.PaginationInterceptor">
+		<property name="properties">
+			<props>
+				<!--指定是什么数据库-->
+				<prop key="dbms">SQLSERVER2005</prop>
+				<!--那些是需要进行分页请求的，对应 select标记的id-->
+				<prop key="sqlRegex">.*Paged.*</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="datasource"></property>
+		<property name="configLocation" value="classpath:mybaits/mybatis-config.xml"></property>
+		<property name="typeAliasesPackage" value="com.iflytek.oms.oms.domain;com.iflytek.oms.pms.domain;com.iflytek.oms.ums.domain"></property>
+		<property name="mapperLocations">
+			<list>
+				<value>classpath*:mybaits/**/*Mapper.xml</value>
+			</list>
+		</property>
+		<property name="plugins">
+			<list>
+				<ref bean="pageConfig"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.iflytek.oms.**.persist"/>
+	</bean>
+</beans>

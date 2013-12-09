@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+<mapper namespace="com.iflytek.oms.oms.persist.OrderDao">
+
+<insert id="insert" parameterType="Order">
+<selectKey resultType="Integer" keyProperty="orderId" >
+<![CDATA[
+select @@IDENTITY
+]]>
+</selectKey>
+<![CDATA[
+INSERT INTO
+	Orders (
+	CustomerID,
+	EmployeeID,
+	OrderDate,
+	RequiredDate,
+	ShippedDate,
+	ShipVia,
+	Freight,
+	ShipName,
+	ShipAddress,
+	ShipCity,
+	ShipRegion,
+	ShipPostalCode,
+	ShipCountry
+)
+VALUES
+(
+  #{customerId},
+  #{employeeId},
+  #{orderDate},
+  #{requiredDate},
+  #{shippedDate},
+  #{shipperId},
+  #{freight},
+  #{ship.name},
+  #{ship.address.address},
+  #{ship.address.city},
+  #{ship.address.region},
+  #{ship.address.postalCode},
+  #{ship.address.country}
+)
+]]>
+</insert>
+
+<update id="update" parameterType="Order">
+<![CDATA[
+UPDATE
+	Orders
+SET
+	CustomerID=#{customerId},
+	EmployeeID=#{employeeId},
+	OrderDate=#{orderDate},
+	RequiredDate=#{requiredDate},
+	ShippedDate=#{shippedDate},
+	ShipVia=#{shipperId},
+	Freight=#{freight},
+	ShipName=#{ship.name},
+	ShipAddress=#{ship.address.address},
+	ShipCity=#{ship.address.city},
+	ShipRegion=#{ship.address.region},
+	ShipPostalCode=#{ship.address.postalCode},
+	ShipCountry= #{ship.address.country}
+WHERE
+	OrderID=#{orderId}
+]]>
+</update>
+
+<delete id="delete" parameterType="int">
+<![CDATA[
+DELETE FROM
+	Orders
+WHERE
+	OrderID=#{id}
+]]>
+</delete>
+
+<select id="selectOne" parameterType="int" resultMap="OrderMapper">
+<![CDATA[
+SELECT 
+	OrderID,
+	CustomerID,
+	EmployeeID,
+	OrderDate,
+	RequiredDate,
+	ShippedDate,
+	ShipVia,
+	Freight,
+	ShipName,
+	ShipAddress,
+	ShipCity,
+	ShipRegion,
+	ShipPostalCode,
+	ShipCountry
+FROM Orders
+WHERE
+	OrderID=#{id}
+]]>
+</select>
+
+<select id="selectPagedOrders" resultMap="OrderMapper">
+<![CDATA[
+SELECT 
+	OrderID,
+	CustomerID,
+	EmployeeID,
+	OrderDate,
+	RequiredDate,
+	ShippedDate,
+	ShipVia,
+	Freight,
+	ShipName,
+	ShipAddress,
+	ShipCity,
+	ShipRegion,
+	ShipPostalCode,
+	ShipCountry
+FROM Orders
+
+]]>
+</select>
+
+<select id="selectPagedOrdersByShipperId" parameterType="int" resultMap="OrderMapper">
+<![CDATA[
+SELECT 
+	OrderID,
+	CustomerID,
+	EmployeeID,
+	OrderDate,
+	RequiredDate,
+	ShippedDate,
+	ShipVia,
+	Freight,
+	ShipName,
+	ShipAddress,
+	ShipCity,
+	ShipRegion,
+	ShipPostalCode,
+	ShipCountry
+FROM Orders
+WHERE
+	ShipVia=#{shipperId}
+]]>
+</select>
+
+<resultMap type="Order" id="OrderMapper">
+	<result property="orderId" column="OrderID"/>
+	<result property="orderDate" column="OrderDate"/>
+	<result property="requiredDate" column="RequiredDate"/>
+	<result property="shippedDate" column="ShippedDate"/>
+	<result property="freight" column="Freight"/>
+	<result property="ship.name" column="ShipName" />
+	<result property="ship.address.address" column="ShipAddress" />
+	<result property="ship.address.city" column="ShipCity" />
+	<result property="ship.address.region" column="ShipRegion" />
+	<result property="ship.address.postalCode" column="ShipPostalCode" />
+	<result property="ship.address.country" column="ShipCountry" />
+	<result property="customerId" column="CustomerID"/>
+	<result property="employeeId" column="EmployeeID" />
+	<result property="shipperId" column="ShipVia"/>
+</resultMap>
+</mapper>

@@ -1,0 +1,78 @@
+body 
+{
+	background:#fff;
+	margin:0px;
+	padding:0px;
+}
+.l_wrap
+{
+	background:url(../images/l_topright.png) no-repeat top right;
+	background-color:#e4e4e4;
+	width:930px;
+	min-height:530px;
+	margin:0px auto;
+	margin-top:50px;
+	padding:20px;
+	display:block;
+	border-bottom:3px solid #6f6f6f;
+}
+.l_left
+{
+	width:445px;
+	min-height:530px;
+	background:url(../images/l_vline.png) no-repeat center right;
+	float:left;
+}
+.l_desc
+{
+	background:url(../images/login_left.png) no-repeat center center;
+	min-width:325px;
+	min-height:330px;
+	padding-top:190px;
+}
+.l_right
+{
+	float:left;
+	width:410px;
+	padding:60px 0px 0px 60px;
+}
+.l_form
+{
+}
+.l_form h1 
+{
+	color:#555;
+}
+.l_form p
+{
+}
+.l_form label
+{
+	font-size:14px;
+	color:#555;
+}
+.l_form .l_textbox
+{
+	font-size:14px;
+	color:#555;
+	padding:8px;
+	width:220px;
+	border:1px #ccc solid;
+}
+.l_form .l_sbmt
+{
+	border:0px;
+	background-color:#009966;
+	height:50px;
+	width:110px;
+	color:#fff;
+	font-family:微软雅黑;
+	font-size:18px;
+	cursor:pointer;
+	margin-top:15px;
+}
+.l_errormsg
+{
+	color:Red;
+	font-size:12px;
+}
