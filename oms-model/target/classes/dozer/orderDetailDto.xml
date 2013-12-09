@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping>
+		<class-a>com.iflytek.oms.oms.domain.OrderDetail</class-a>
+		<class-b>com.iflytek.oms.oms.dto.OrderDetailDto</class-b>
+
+		<field>
+			<a>orderId</a>
+			<b>orderId</b>
+		</field>
+		<field>
+			<a>productId</a>
+			<b>productId</b>
+		</field>
+		<field>
+			<a>unitPrice</a>
+			<b>unitPrice</b>
+		</field>
+		<field>
+			<a>quantity</a>
+			<b>quantity</b>
+		</field>
+	</mapping>
+
+
+</mappings>
