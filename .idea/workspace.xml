@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0a8ecf4e-6aff-45ad-892f-2fa3f7fd91e6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oms-model/pom.xml" afterPath="$PROJECT_DIR$/oms-model/pom.xml" />
-    </list>
+    <list default="true" id="0a8ecf4e-6aff-45ad-892f-2fa3f7fd91e6" name="Default" comment="" />
     <ignored path="oms.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="0a8ecf4e-6aff-45ad-892f-2fa3f7fd91e6" time="1386599677465" ignored="false" />
@@ -572,13 +570,6 @@
     <entry file="file://$PROJECT_DIR$/oms-model/oms-model.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="56" selection-start="695" selection-end="695" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oms-persist/oms-persist.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.9944751">
           <folding />
         </state>
       </provider>
