@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iflytek.oms.oms.persist.CustomerDao">
+
+<select id="selectCustomerByName" parameterType="string">
+<![CDATA[
+SELECT 
+	CustomerID,
+	CompanyName,
+	ContactName,
+	ContactTitle,
+	Address,
+	City,
+	Region,
+	PostalCode,
+	Country,
+	Phone,
+	Fax
+FROM 
+	Customers
+WHERE
+	CompanyName=#{name}
+]]>
+</select>
+
+<select id="selectOne" parameterType="string" resultMap="CustomerMapper">
+<![CDATA[
+SELECT 
+	CustomerID,
+	CompanyName,
+	ContactName,
+	ContactTitle,
+	Address,
+	City,
+	Region,
+	PostalCode,
+	Country,
+	Phone,
+	Fax
+FROM 
+	Customers
+WHERE
+	CustomerID=#{customerID}
+]]>
+</select>
+
+<select id="selectAll" resultMap="CustomerMapper">
+<![CDATA[
+SELECT 
+	CustomerID,
+	CompanyName
+FROM 
+	Customers
+]]>
+</select>
+
+<resultMap type="Customer" id="CustomerMapper">
+<result property="customerId" column="CustomerID"></result>
+<result property="companyName" column="CompanyName"></result>
+<result property="contact.title" column="ContactName"></result>
+<result property="contact.name" column="ContactTitle"></result>
+<result property="contact.phone" column="Phone"></result>
+<result property="contact.fax" column="Fax"></result>
+<result property="address.address" column="Address"></result>
+<result property="address.city" column="City"></result>
+<result property="address.region" column="Region"></result>
+<result property="address.postalCode" column="PostalCode"></result>
+<result property="address.country" column="Country"></result>
+</resultMap>
+</mapper>
